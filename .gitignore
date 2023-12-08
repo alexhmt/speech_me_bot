@@ -198,5 +198,5 @@ config.ini
 
 db/*.json
 
-data/voices/*
-data/videos/*
+storage/voices/*
+storage/videos/*

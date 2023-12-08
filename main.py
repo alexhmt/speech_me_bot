@@ -8,6 +8,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from config import config
 from handlers import router
 from recognize import recognize_audio
+import db.db as db
 
 
 async def main():
@@ -19,5 +20,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w", format="%(asctime)s %(levelname)s %(message)s")
+    db.delete_all()
+    db.check_db()
     asyncio.run(main())
