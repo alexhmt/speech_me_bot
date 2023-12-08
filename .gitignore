@@ -197,3 +197,6 @@ pyrightconfig.json
 config.ini
 
 db/*.json
+
+data/voices/*
+data/videos/*
