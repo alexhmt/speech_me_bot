@@ -1,0 +1,37 @@
+# Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*__pycache__
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+config.ini
+
+db/*.json
+
+.git
+.github
+db/__pycache__
+
+
+config.ini
+
+db/*.json
+
+storage/voices/*
+storage/videos/*

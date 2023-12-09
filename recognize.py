@@ -45,7 +45,7 @@ def recognize_audio(audio):
    for c, res in enumerate(result):
       if res.normalized_text:
          return f"✍️\n{res.normalized_text}"
-      return "🤷‍♂️"
+      return ""
       # if res.has_utterances():
       #    print('utterances:')
       #    for utterance in res.utterances:
