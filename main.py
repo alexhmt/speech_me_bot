@@ -11,10 +11,24 @@ from recognize import recognize_audio
 import db.db as db
 
 
+async def start_bot():
+    global bot
+    for id in db.admins_id():
+        await bot.send_message(id, "Запуск бота Спич")
+
+
+async def stop_bot():
+    global bot
+    for id in db.admins_id():
+        await bot.send_message(id, "Спич завершил свою работу")
+
 async def main():
+    global bot
     bot = Bot(token=config["TELEGRAM"]["BOT_TOKEN"], parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(router)
+    dp.startup.register(start_bot)
+    dp.shutdown.register(stop_bot)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 

@@ -1,7 +1,19 @@
 FROM python:3.9
-WORKDIR /app
-COPY requirements.txt requirements.txt
-RUN pip3 install --upgrade setuptools
-RUN pip3 install -r requirements.txt
-RUN chmod 755 .
-COPY . .
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Установим директорию для работы
+
+WORKDIR /telegram_bot
+
+COPY ./requirements.txt ./
+
+# Устанавливаем зависимости и gunicorn
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r ./requirements.txt
+
+# Копируем файлы и билд
+COPY ./ ./
+
+RUN chmod -R 777 ./

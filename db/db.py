@@ -48,7 +48,7 @@ def new_speech(user, msg_type, duration, words):
     if len(bd_users) == 0:
         reg_user(user)
     bd_user = users.getByQuery({"tg_id": str(user.id)})[0]
-    message_id = messages.add({"time": datetime.now().strftime(utils.date_format), "type": msg_type, "duration": duration, "words": words})
+    message_id = messages.add({"time": datetime.now().strftime(utils.date_format), "type": msg_type, "duration": str(duration), "words": words})
     users.updateById(bd_user["id"], {"messages": bd_user["messages"] + [message_id]})
 
     
@@ -57,5 +57,21 @@ def new_speech_group(group, msg_type, duration, words):
     if len(bd_groups) == 0:
         reg_group(group)
     bd_group = groups.getByQuery({"chat_id": str(group.id)})[0]
-    message_id = messages.add({"time": datetime.now().strftime(utils.date_format), "type": msg_type, "duration": duration, "words": words})
+    message_id = messages.add({"time": datetime.now().strftime(utils.date_format), "type": msg_type, "duration": str(duration), "words": words})
     groups.updateById(bd_group["id"], {"messages": bd_group["messages"] + [message_id]})
+
+
+
+def admins_id():
+    ids = []
+    admins_ = admins.getAll()
+    for admin in admins_:
+        ids.append(int(admin["tg_id"]))
+    return ids
+
+def check_admin(id):
+    ids = []
+    admins_ = admins.getAll()
+    for admin in admins_:
+        ids.append(int(admin["tg_id"]))
+    return id in ids
