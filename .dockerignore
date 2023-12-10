@@ -20,7 +20,6 @@ venv.bak/
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
-config.ini
 
 db/*.json
 
@@ -28,8 +27,6 @@ db/*.json
 .github
 db/__pycache__
 
-
-config.ini
 
 db/*.json
 

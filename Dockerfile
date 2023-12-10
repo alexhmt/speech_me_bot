@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # Установим директорию для работы
 
-WORKDIR /telegram_bot
+WORKDIR /speech-me-bot
 
 COPY ./requirements.txt ./
 
